@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>{{get_customer}}</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Nana Galore" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		
+		<link rel="stylesheet" type="text/css" href="/static/multiple/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="/static/multiple/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="/static/multiple/css/component.css" />
+		<script src="/static/multiple/js/modernizr.custom.js"></script>
+		
+	</head>
+	<body>
+		<div class="container demo-1">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="/"><span>Home</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="/transactions"><span>Customers</span></a></span>
+			</div>
+			<header>
+				<h1>{{get_customer.Full_Name}} <span> {% for num in get_customer.get_car_number %}
+{{num}},
+{% endfor %}</span>
+</h1>
+				
+			</header>
+			{% ifnotequal save 'on' %}
+			<section>
+			
+				<form class="me-select" action="." method="post" >
+				
+					<ul id="me-select-list" >
+					
+					{%  for service in get_services %}
+					
+						<li ><input id="cb{{service.pk}}" value="{{service.pk}}" name="{{service.pk}}" type="checkbox"><label for="cb{{service.pk}}"><span>{{service.service_Name}}</span><span>{{service.car_type}}</span><span> <h1>{{service.price}}</h1> </span></label></li>
+						
+						{% endfor %}
+						
+						<!--
+						<li><input id="cb2" name="cb2" type="checkbox"><label for="cb2"><span>Carrie Johnston</span><span>Design Mockups for Fancy Burger</span><span>08:16 pm</span></label></li>
+						<li><input id="cb3" name="cb3" type="checkbox"><label for="cb3"><span>Barry White</span><span>Please consider my SEO services... please?</span><span>08:11 pm</span></label></li>
+						<li><input id="cb4" name="cb4" type="checkbox"><label for="cb4"><span>Dave Rookie</span><span>Check out this cat video</span><span>07:55 pm</span></label></li>
+						<li><input id="cb5" name="cb5" type="checkbox"><label for="cb5"><span>Jim Jimbo</span><span>You order with Jimbo Direct</span><span>07:38 pm</span></label></li>
+						<li><input id="cb6" name="cb6" type="checkbox"><label for="cb6"><span>Art Van Dim</span><span>I need a pie chart</span><span>06:24 pm</span></label></li>
+						<li><input id="cb7" name="cb7" type="checkbox"><label for="cb7"><span>W. Willson</span><span>Saturday night dinner</span><span>06:45 pm</span></label></li>
+						<li><input id="cb8" name="cb8" type="checkbox"><label for="cb8"><span>Gary</span><span>Games from FunkyCrazyGames.com</span><span>05:38 pm</span></label></li>
+						<li><input id="cb9" name="cb9" type="checkbox"><label for="cb9"><span>Dan Richards</span><span>One last warning</span><span>04:32 pm</span></label></li>
+						<li><input id="cb10" name="cb10" type="checkbox"><label for="cb10"><span>Henry Bright</span><span>I need you opinion</span><span>03:49 pm</span></label></li>
+						<li><input id="cb11" name="cb11" type="checkbox"><label for="cb11"><span>Olivia Grant</span><span>When are you coming home?</span><span>03:23 pm</span></label></li>
+						<li><input id="cb12" name="cb12" type="checkbox"><label for="cb12"><span>Becky Turner</span><span>I have your tickets</span><span>02:55 pm</span></label></li>
+						<li><input id="cb13" name="cb13" type="checkbox"><label for="cb13"><span>Bookmeister</span><span>Your booking at Loft 523</span><span>01:46 pm</span></label></li>
+-->					
+					</ul>
+					
+					<div class="col-md-3">
+					<!--<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+            <button class="btn btn-lg btn-warning btn-block">Submit</button>
+        </div>
+				</form>
+			</section>
+			
+			{% else %}
+			<p>{{perform_trans.amount}}Record have been saved successfully</p>
+			{% endifnotequal %}
+			
+		</div><!-- /container -->
+		<script src="/static/multiple/js/magicselection.js"></script>
+		<script>
+			(function() {
+				var selList = document.getElementById( 'me-select-list' ),
+					items = selList.querySelectorAll( 'li' );
+				
+				// fill the initial checked elements (mozilla)
+				[].slice.call( items ).forEach( function( el ) {
+					el.parentNode.className = el.checked ? 'selected' : '';
+				} );
+
+				function checkUncheck( el ) {
+					el.parentNode.className = el.checked ? '' : 'selected';
+					el.checked = !el.checked;
+				}
+
+				new magicSelection( selList.querySelectorAll( 'li > input[type="checkbox"]' ), {
+					onSelection : function( el ) { checkUncheck( el ); },
+					onClick : function( el ) {
+						el.parentNode.className = el.checked ? 'selected' : '';
+					}
+				} );
+
+			} )();
+		</script>
+	</body>
+</html>

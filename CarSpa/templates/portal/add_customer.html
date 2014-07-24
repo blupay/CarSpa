@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+{% block title %}
+    <title>Add Customer</title>
+{% endblock title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Nana Galore" >
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/bootstrap/css/main.css" rel="stylesheet">
+    
+     
+	  	
+		
+	
+    
+     
+
+    
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style = "background-color:white ;">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+        
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#about">Settings</a></li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+  </div>
+
+{% block content %}
+<div class="panel panel-danger col-sm-offset-0 main">
+<div class="panel-heading"><b>New Customer Form</b> </div>
+<div  class="panel-body">
+{% ifequal saved 'on' %}
+{{customer_instance}} Has Been Saved Successfully
+{% else %}
+  
+<form class="form-horizontal" action="." method="post">
+    <fieldset>
+        <legend>Customer Details</legend>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name :</label>
+            <div class="col-sm-6">
+            <input type="text" name="name" required="required" value="" placeholder="Full Name" class="form-control">
+            </div>
+           
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email :</label>
+             <div class="col-sm-6">
+            <input type="email"  name="email" value="" placeholder="Email Address" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mobile :</label>
+             <div class="col-sm-6">
+            <input type="tel"  name="mobile" placeholder="Mobile Number" required="required" pattern=".{10,10}" value="" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Gender</label>
+             <div class="col-sm-6">
+            <select class="form-control" name="gender">
+            <option value="" selected="selected" disabled="disabled">-Select-</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            
+            
+            
+            
+            </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Car No(s). :</label>
+             <div class="col-sm-6">
+            <input type="text"  name="number" required="required"  placeholder="separate by commas" value="" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-lg btn-warning btn-block">Add</button>
+        </div>
+    </fieldset>
+</form>    
+
+{% endifequal %}
+</div>
+
+
+
+
+
+
+</div>   
+   
+ 
+
+
+
+{% endblock %}
+ 
+ 
+
+
+
+
+
+
+    
+<!-- Placed at the end of the document so the page load faster-->
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
+	 <script src="/static/jquery/jquery-1.5.2.min.js"></script>
+	 <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+ 	 	
+ 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="jquery.h5validate.js"></script>
+<script>
+$(document).ready(function () {
+    $('form').h5Validate();
+});
+</script>
+	 
+  <script type="text/javascript" src="/static/jquery/jquery.js"></script>
+   <!-- <script src="/static/bootstrap/js/jquery-1.7.2.min.js"></script>-->
+  <script type="text/javascript">
+$( document ).ready( function() {
+    $( '#q' ).keyup( function() {
+        q = $( '#q' ).val();
+        $( '#results' ).html( '&nbsp;' ).load( '/search/?q=' + q );
+    });
+});
+
+</script> 
+ </body> 
+</html>

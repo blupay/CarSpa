@@ -1,0 +1,59 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+  /*background: url(/static/images/pattern8.png); */
+  background-color: #3B5998;
+  overflow:hidden;
+}
+
+.navbar-default {
+background-color: #3C3C3C;
+border-color:#3C3C3C;
+}
+
+.navbar-default .navbar-brand {
+color: #fff;
+}
+
+.navbar-collapse, .navbar-default .navbar-form {
+border-color: #fff;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+color: #fff;
+background-color: #3B5998 ;
+}
+
+.navbar-default .navbar-nav>li>a {
+color: #3B5998 ;
+}
+
+
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+background-color: #3B5998 ;
+color: #fff;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+color: #fff;
+}
+
+.navbar{
+margin-bottom:1px;
+
+
+}
+
+.jumbotron {
+padding: 30px;
+margin-bottom: 30px;
+color: inherit;
+background-color: #fff;
+}
+
+#dateDiv{
+color:#fff;
+padding:15px;
+}

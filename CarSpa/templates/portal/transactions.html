@@ -1,0 +1,76 @@
+{% extends "portal/add_customer.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+<div class="container-fluid">
+<form class="form-horizontal" action="." method="post">
+<fieldset>
+<legend>Search By:</legend>
+</fieldset>
+<input id="q" type="text" style="width:;height:50px; margin-bottom: 10px;" required="required" name="search_item" class="form-control" placeholder="Customer Name, Car Number, Mobile Number" >
+
+</form>
+
+</div>
+
+<div  id ="results" >
+
+{% if get_reg_customers %}
+
+
+<table class="table table-striped table-bordered table-condensed">
+
+<tr>
+<th style="background:#66CCFF" >NAME</th>
+<th style="background:#F2F5A9">MOBILE NUMBER</th>
+<th style="background:#66CCFF"> CAR NUMBER(s) </th>
+<th style="background:#F2F5A9">DATE REGISTERED</th>
+
+
+</tr>
+
+{% for customers in get_reg_customers %}
+
+<tr>
+<td> <a href="/customer/trans/{{customers.customer_ID}}/True"  style="display:block; text-decoration:none !important; color:black;">  {{customers.Full_Name}}</a></td>
+<td><a href="/customer/trans/{{customers.customer_ID}}/True"  style="display:block; text-decoration:none !important; color:black;"> 
+{{customers.mobile_number}} </a>
+</td>
+
+<td> <a href="/customer/trans/{{customers.customer_ID}}/True"  style="display:block; text-decoration:none !important; color:black;"> 
+{% for num in customers.get_car_number %}
+{{num}},
+{% endfor %} </a>
+</td>
+<td> <a href="/customer/trans/{{customers.customer_ID}}/True"  style="display:block; text-decoration:none !important; color:black;"> 
+{{customers.date_created}} </a>
+</td>
+
+
+</tr>
+{% endfor %}
+
+
+</table>
+
+
+{% else %} 
+
+ 
+ {% endif %}
+</div>
+
+
+
+
+</div>
+
+
+{% endblock%}
+
+
+
+
