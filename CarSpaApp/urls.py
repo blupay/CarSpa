@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 		  url(r'^transactions/$', 'CarSpaApp.views.add_transaction'),
 		  url(r'^search/$', 'CarSpaApp.views.search', name = 'search' ),
 		  url(r'^customer/trans/(?P<term>.*?)/((?P<showDetails>.*)/)?$', 'CarSpaApp.views.customer_transaction'),
+		  url(r'^customer/print/transaction/(?P<term>.*?)/((?P<showDetails>.*)/)?$','CarSpaApp.views.print_transaction'),
 		  
 		  #url(r'^accounts/login/?next=/$', 'login'),
 		  		 

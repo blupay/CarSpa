@@ -1,0 +1,38 @@
+{% extends "portal/add_customer.html" %}
+
+
+{% block content %}
+<div class="panel panel-danger col-sm-offset-0 main">
+<div class="panel-heading"><b>Record Has been saved successfully</b> </div>
+<div  class="panel-body">
+
+<table class="table table-striped table-bordered table-condensed">
+<tr>
+<td>Transaction ID </td>
+<td>{{get_this_trans}}</td>
+</tr>
+
+<tr>
+<td>Customer </td>
+<td>{{get_customer.Full_Name}}</td>
+</tr>
+
+<tr>
+<td>Services </td>
+
+<td>{% for service in get_services %}{{service.service.service_Name }}-[{{service.service.price}}]<br> {% endfor %}</td>
+</tr>
+<tr>
+<td>Total Amount </td>
+<td>GHS {{get_this_trans.amount}}</td>
+</tr>
+</table>
+
+
+
+
+</div>
+
+</div>
+
+{% endblock%}

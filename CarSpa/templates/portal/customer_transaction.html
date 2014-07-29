@@ -7,7 +7,7 @@
 		<title>{{get_customer}}</title>
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<meta name="author" content="Nana Galore" />
+		<meta name="author" content="GOD'S LOVE" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		
 		<link rel="stylesheet" type="text/css" href="/static/multiple/css/normalize.css" />
@@ -28,7 +28,7 @@
 {{num}},
 {% endfor %}</span>
 </h1>
-				
+				{% if redirect %} <h1>No Record selected {{redirect}}{{save}}</h1>{% endif %}
 			</header>
 			{% ifnotequal save 'on' %}
 			<section>
